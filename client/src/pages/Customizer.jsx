@@ -20,7 +20,31 @@ import {
 const Customizer = () => {
   const snap = useSnapshot(state);
 
-  return <AnimatePresence>{!snap.intro && <>Customizer</>}</AnimatePresence>;
+  return (
+    <AnimatePresence>
+      {!snap.intro && (
+        <>
+          <motion.div
+            key="custom"
+            className="absolute top-0 left-0 z-10"
+            {...slideAnimation("left")}>
+            <div className="flex items-center min-h-screen">
+              <div className="editortabs-container tabs">
+                {EditorTabs.map((tab, index) => (
+                  <Tab
+                    key={index}
+                    tab={tab}
+                    activeTab={snap.editorTab}
+                    setTab={state.setEditorTab}
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
 };
 
 export default Customizer;
