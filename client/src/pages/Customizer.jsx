@@ -31,19 +31,15 @@ const Customizer = () => {
             <div className="flex items-center min-h-screen">
               <div className="editortabs-container tabs">
                 {EditorTabs.map((tab, index) => (
-                  <Tab
-                    key={index}
-                    tab={tab}
-                    activeTab={snap.editorTab}
-                    setTab={state.setEditorTab}
-                    handleClick={() => {}}
-                  />
+                  <Tab key={index} tab={tab} handleClick={() => {}} />
                 ))}
               </div>
             </div>
           </motion.div>
 
-          <motion.div className="absolte z-10 top-5 right-5" {...fadeAnimation}>
+          <motion.div
+            className="absolute z-10 top-5 right-5"
+            {...fadeAnimation}>
             <CustomButton
               type="filled"
               title="Go Back"
@@ -57,10 +53,10 @@ const Customizer = () => {
             {...slideAnimation("up")}>
             {FilterTabs.map((tab, index) => (
               <Tab
+                isFilterTab
+                isActiveTab=""
                 key={index}
                 tab={tab}
-                activeTab={snap.filterTab}
-                setTab={state.setFilterTab}
                 handleClick={() => {}}
               />
             ))}
