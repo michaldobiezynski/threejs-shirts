@@ -18,7 +18,13 @@ const Tab = ({ tab, isFilteredTab, isActiveTab, handleClick }) => {
         isFilteredTab ? "rounded-full glassmorphism" : "rounded-4"
       }`}
       style={activeStyles}>
-      <img src={tab.icon} alt={tab.name} />
+      <img
+        src={tab.icon}
+        alt={tab.name}
+        className={`${
+          isFilteredTab ? "w-2/3 h-2/3" : "w-11/12 h-11/12 object-contain"
+        }`}
+      />
     </div>
   );
 };
